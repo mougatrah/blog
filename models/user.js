@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-    name: {
+    username: {
         type: DataTypes.STRING,
         // AllowNull is a flag that restricts a todo from being entered if it doesn't
         // have a text value
@@ -9,7 +9,11 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           len: [1, 140]
         }
-      }
+      },
+    password: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    }
     });
     return User;
   };
